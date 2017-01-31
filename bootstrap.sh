@@ -57,7 +57,8 @@ fi
 echo "*************************"
 echo "Installation complete."
 echo "You can access the server at:"
-echo "http://localhost.localdomain:8080/"
+echo "    http://localhost.localdomain:8080/"
+echo
 echo "If you are developing you might want to:"
 echo "    vagrant rsync-auto"
 echo "*************************"
