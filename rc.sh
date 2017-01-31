@@ -27,7 +27,7 @@ load_rc_config $name
 snowflake_start() {
     /usr/sbin/daemon -c -f -u "$snowflake_user" -p "$pidfile" \
         /usr/local/bin/python2.7 -m snowflake.cmd \
-        -d "$snowflake_db" --server $snowflake_flags
+            -d "$snowflake_db" --server $snowflake_flags
 }
 
 snowflake_stop() {

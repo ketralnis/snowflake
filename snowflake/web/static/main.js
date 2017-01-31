@@ -23,6 +23,9 @@ $(function() {
             return false;
         }
 
+        // save this username
+        Cookies.set("user_name", user_name);
+
         $.ajax({
             'url': '/rate',
             'method': 'POST',

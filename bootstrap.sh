@@ -53,3 +53,11 @@ if ! pgrep -fl snowflake; then
     echo "snowflake failed to come up"
     exit 1
 fi
+
+echo "*************************"
+echo "Installation complete."
+echo "You can access the server at:"
+echo "http://localhost.localdomain:8080/"
+echo "If you are developing you might want to:"
+echo "    vagrant rsync-auto"
+echo "*************************"
