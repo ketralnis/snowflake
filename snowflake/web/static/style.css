@@ -1,5 +1,6 @@
 .welcome-container {
-    float: left;
+    float: right;
+    width: 120px;
 }
 
 .labels-container {
@@ -8,12 +9,17 @@
 
 .url-container {
     text-align: center;
+    width: 100%;
 }
 
 body {
     width: 100%;
 }
 
-input {
+input[name=user_name] {
+    width: 150px;
+}
+
+input[name=url] {
     width: 250px;
 }

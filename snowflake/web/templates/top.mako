@@ -20,12 +20,13 @@
             user name <input name="user_name" value="${default_name}" />
         </div>
 
-        <div class="url-container">
-            url: <input readonly="readonly" name="url" value="(loading...)"/>
-        </div>
 
         <div class="labels-container">
             labels: <span class="labels">(loading...)</span>
+        </div>
+
+        <div class="url-container">
+            url: <input readonly="readonly" name="url" value="(loading...)"/>
         </div>
     </body>
 </html>
