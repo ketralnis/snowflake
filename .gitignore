@@ -1,0 +1,6 @@
+*.pyc
+*~
+.vagrant
+
+labels.txt
+samples.txt

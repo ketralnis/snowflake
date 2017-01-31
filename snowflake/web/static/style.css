@@ -1,0 +1,19 @@
+.welcome-container {
+    float: left;
+}
+
+.labels-container {
+    float: right;
+}
+
+.url-container {
+    text-align: center;
+}
+
+body {
+    width: 100%;
+}
+
+input {
+    width: 250px;
+}
