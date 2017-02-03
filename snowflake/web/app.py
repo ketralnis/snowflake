@@ -1,7 +1,6 @@
 from functools import partial
 import logging
 import os.path
-import random
 
 from flask import Flask
 from flask import request, url_for
@@ -10,11 +9,12 @@ from mako.lookup import TemplateLookup
 
 from snowflake.utils import LockBox
 
-def slash(app):
+
+def get_slash(app):
     return render(app, 'slash')
 
 
-def top_frame(app):
+def get_top(app):
     authenticated = request.headers.get('Authenticated-User', None)
     cookied = request.cookies.get('user_name', '')
 
@@ -35,7 +35,7 @@ def get_next(app):
     )
 
 
-def rate(app):
+def post_rate(app):
     url = request.form['url']
     label = request.form['label']
     who = request.form['who']
@@ -69,9 +69,9 @@ def make_app(db, debug=False):
         cache_enabled=not app.config['debug'],
     )
 
-    app.add_url_rule('/', 'slash', partial(slash, app))
-    app.add_url_rule('/top', 'top', partial(top_frame, app))
+    app.add_url_rule('/', 'slash', partial(get_slash, app))
+    app.add_url_rule('/top', 'top', partial(get_top, app))
     app.add_url_rule('/next', 'next', partial(get_next, app))
-    app.add_url_rule('/rate', 'rate', partial(rate, app), methods=['POST'])
+    app.add_url_rule('/rate', 'rate', partial(post_rate, app), methods=['POST'])
 
     return app

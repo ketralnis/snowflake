@@ -5,9 +5,11 @@ $(function() {
         $('input[name=user_name]').val(cookie);
     }
 
+    $('.labels-container,.url-container,.skip').hide()
+
     $.popup = null;
 
-    get_next();
+    $('.skip,.go').click(get_next);
 
     $('.labels').click(function(evt) {
         var target = $(evt.target);
@@ -44,23 +46,47 @@ $(function() {
 })
 
 function open_popup(href) {
-    if($.popup) {
-        $.popup.location = href;
+    var mode = 'popup';
+
+    if(mode=='popup') {
+        if($.popup) {
+            $.popup.location = href;
+        } else {
+            $.popup = window.open(href, 'popup');
+        }
     } else {
-        $.popup = window.open(href, 'popup');
+        // otherwise we're using the frame system
+        window.frames.bottom.location = href;
     }
 }
 
 function get_next() {
+    $('.welcome-container,.labels-container,.url-container,.skip').show()
+    $('.go').hide();
+
+    var user_name = $('input[name=user_name]').val();
+    var url = '/next';
+
+    if(!user_name || user_name.length==0) {
+        // we're just requiring it now
+        alert("need a user name");
+        return false;
+    }
+
+    if(user_name && user_name.length>0) {
+        // if we have a username, pass it along
+        url = '/next?user_name='+escape(user_name);
+    }
+
     $.ajax({
-        url: "/next",
-        dataType: 'json',
-        method: 'GET',
-        error: function(xhr, textStatus, errorThrown) {
+        'url': url,
+        'dataType': 'json',
+        'method': 'GET',
+        'error': function(xhr, textStatus, errorThrown) {
             console.log("Err", xhr, textStatus, errorThrown);
             alert("Error!")
         },
-        success: function(data, textStatus, xhr) {
+        'success': function(data, textStatus, xhr) {
             // clear out the labels so we can add the ones that came in
             $('.labels').empty();
 

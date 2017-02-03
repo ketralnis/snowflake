@@ -1,5 +1,6 @@
 <%! import json %>
-<!html>
+<!DOCTYPE html>
+<html>
     <head>
         <link rel="stylesheet" href="${static('bootstrap-3.3.7-dist/css/bootstrap.min.css')}" />
         <link rel="stylesheet" type="text/css" href="${static('style.css')}" />
@@ -16,17 +17,24 @@
         //]]></script>
     </head>
     <body>
-        <div class="welcome-container">
+        <span class="welcome-container">
             user name <input name="user_name" value="${default_name}" />
-        </div>
+        </span>
 
-
-        <div class="labels-container">
-            labels: <span class="labels">(loading...)</span>
-        </div>
-
-        <div class="url-container">
+        <span class="url-container">
             url: <input readonly="readonly" name="url" value="(loading...)"/>
-        </div>
+        </span>
+
+        <span class="labels-container">
+            labels: <span class="labels">(loading...)</span>
+        </span>
+
+        <span class="go btn btn-info">
+            get started
+        </span>
+
+        <span class="skip btn btn-info">
+            skip
+        </span>
     </body>
 </html>

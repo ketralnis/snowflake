@@ -1,15 +1,13 @@
 .welcome-container {
-    float: right;
-    width: 120px;
+    width: 30%;
 }
 
 .labels-container {
-    float: right;
+    width: 30%;
 }
 
 .url-container {
-    text-align: center;
-    width: 100%;
+    width: 30%;
 }
 
 body {

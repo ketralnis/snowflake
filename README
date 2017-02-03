@@ -1,0 +1,17 @@
+specialsnowflake is a tool for quickly categorising URLs
+
+For instance, you may want to be able to use a group of 10 people to quickly
+filter a list of thousands of URLs as spam, or a list of images as pornographic
+
+# usage
+
+The easiest way to start it is to install [Vagrant](https://www.vagrantup.com/)
+and do:
+
+    vagrant up
+
+Then connect to http://localhost.localdomain:8080
+
+If `samples.txt` and `labels.txt` exist they will be imported after creating the
+server. `samples.txt` is a newline-separated list of URLs to rate and
+`labels.txt` is a newline-separated list of labels to assign to them

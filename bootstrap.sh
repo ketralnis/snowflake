@@ -33,7 +33,8 @@ fi
 
 if [ -f /snowflake/labels.txt ]; then
     echo "Importing labels from labels.txt"
-    $SNOWFLAKE --labels $(cat /snowflake/labels.txt)
+    LABELS=`paste -s -d, - < /snowflake/labels.txt`
+    $SNOWFLAKE --labels $LABELS
 fi
 
 # these won't do anything but it's nice to be sure that they work
