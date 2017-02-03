@@ -16,8 +16,6 @@ $(function() {
 
         var user_name = $('input[name=user_name]').val();
         var label = target.data('label');
-        console.log(target);
-        console.log(label);
         var url = $('input[name=url]').val();
 
         if(user_name.length <= 0) {
@@ -43,18 +41,33 @@ $(function() {
             'success': get_next
         })
     })
+
+    $('.refresh').click(function() {
+        var url = $('input[name=url]').val()
+        open_popup(url);
+        return false;
+    })
+
+    $('input[name=url]').focus(function() {
+        $(this).select();
+    })
 })
 
-function open_popup(href) {
-    var mode = 'popup';
+function open_popup(href, mode) {
+    mode = mode || 'popup';
 
     if(mode=='popup') {
+        if($.popup && $.popup.closed) {
+            $.popup = null;
+        }
+
         if($.popup) {
             $.popup.location = href;
         } else {
-            $.popup = window.open(href, 'popup');
+            $.popup = window.open(href, '_blank', 'height=600,width=600');
+            $.popup.location = href;
         }
-    } else {
+    } else if(mode == 'frame') {
         // otherwise we're using the frame system
         window.frames.bottom.location = href;
     }
@@ -102,6 +115,7 @@ function get_next() {
 
             if(data.url) {
                 $('input[name=url]').val(data.url)
+                $('.refresh').attr('href', data.url);
                 open_popup(data.url);
             } else {
                 $('.url-container').hide()

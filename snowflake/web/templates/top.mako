@@ -23,6 +23,9 @@
 
         <span class="url-container">
             url: <input readonly="readonly" name="url" value="(loading...)"/>
+            <a class="refresh btn">
+                <img src="${static('link.png')}"/>
+            </a>
         </span>
 
         <span class="labels-container">

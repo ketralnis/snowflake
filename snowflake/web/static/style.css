@@ -21,3 +21,8 @@ input[name=user_name] {
 input[name=url] {
     width: 250px;
 }
+
+.refresh img {
+    width: 20px;
+    height: 20px;
+}
