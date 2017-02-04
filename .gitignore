@@ -1,6 +1,7 @@
 *.pyc
 *~
 .vagrant
+.DS_Store
 
 labels.txt
 samples.txt
