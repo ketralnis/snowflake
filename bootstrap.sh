@@ -41,7 +41,7 @@ fi
 $SNOWFLAKE --export
 $SNOWFLAKE --export-ratings
 
-cp -p /snowflake/rc.sh /usr/local/etc/rc.d/snowflake
+cp -p /snowflake/freebsd/snowflake.sh /usr/local/etc/rc.d/snowflake
 chmod a+x /usr/local/etc/rc.d/snowflake
 
 sysrc snowflake_enable="YES"
