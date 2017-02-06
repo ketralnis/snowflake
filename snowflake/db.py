@@ -101,7 +101,7 @@ class Database(object):
                 UNION ALL
 
                 SELECT ns.url, '(unknown)', 0, 0
-                FROM samples ns LEFT JOIN ratings nr
+                FROM samples ns LEFT JOIN ratings nr ON ns.url=nr.url
                 WHERE nr.id IS NULL
             """):
             yield Entry(url, label, selected, samples)
